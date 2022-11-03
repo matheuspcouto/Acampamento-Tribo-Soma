@@ -1,0 +1,180 @@
+.my-login-page {
+  background-size: cover;
+}
+
+.divImg {
+  display: flex;
+  justify-content: center;
+}
+
+.img {
+  width: 30%;
+  height: 250px;
+}
+
+@media screen and (max-width: 425px) {
+  .img {
+    width: 70%;
+    height: 180px;
+    margin: 0;
+  }
+}
+
+.my-login-page .brand {
+  width: 250px;
+  height: 150px;
+  overflow: hidden;
+  margin: 30px auto;
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}
+
+.my-login-page .brand img {
+  width: 100%;
+}
+
+.my-login-page {
+  margin-top: 30px;
+  width: 600px;
+}
+
+.my-login-page {
+  border-color: transparent;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, .05);
+}
+
+.my-login-page {
+  padding: 10px;
+}
+
+.my-login-page .card-title {
+  margin-bottom: 30px;
+}
+
+.my-login-page .form-control {
+  border-width: 2.3px;
+}
+
+.my-login-page .form-group label {
+  width: 100%;
+}
+
+.my-login-page .btn.btn-block {
+  padding: 12px 10px;
+}
+
+.my-login-page .footer {
+  margin: 40px 0;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+.social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: #7C0201;
+  color: #E5E5E5;
+  line-height: 1;
+  padding: 8px 0;
+  margin-right: 4px;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  background: #E5E5E5;
+  color: #7C0201;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 425px) {
+  .my-login-page {
+    width: 100%;
+    margin: 10px auto;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .my-login-page {
+    width: 100%;
+    padding: 0;
+  }
+
+  .my-login-page {
+    width: 100%;
+    padding: 15px;
+  }
+}
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: black;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(24px, 0);
+  }
+}

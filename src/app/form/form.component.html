@@ -1,0 +1,169 @@
+<div *ngIf="!enviado">
+  <div class="divImg mt-3"><img src="assets/logo.jpg" class="img"></div>
+  <h2 class="card-title text-center mt-3" id="titulo">Acampamento Soma & Tribo 2022 🏕️</h2>
+  <hr>
+  <h5>Local: Chácara W4 🦜</h5>
+  <h5>Data: 03 e 04 de dezembro</h5>
+  <h5>Valor: R$70,00</h5>
+  <h5>PIX: 63984304160 (Jéssica Bruna Pinheiro Silva)</h5>
+  <h5>Crédito (até 2x): será acrescentada uma taxa de R$3,00</h5>
+  <hr>
+
+  <div class="col-sm-12" style="text-align: center;" *ngIf="carregando">
+    <div class="lds-ellipsis">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <form class="my-login-validation" *ngIf="!carregando">
+
+    <div class="alert alert-danger" role="alert" *ngIf="error">
+      {{errorMessage}} <i class="fa fa-exclamation-circle float-right"></i>
+    </div>
+
+    <div class="row">
+      <h5 for="Nome" class="card-title">Nome Completo</h5>
+      <br><br>
+
+      <div class="form-group col-sm-12" (click)="error = false">
+        <div class="form-group">
+          <input id="Nome" type="text" name="name" class="form-control" [(ngModel)]="inscrito.nome" required
+            (focus)="error = false" oninput="validity.valid||(value='');">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <h5 for="Nome" class="card-title">Idade</h5>
+      <br><br>
+
+      <div class="form-group col-sm-12" (click)="error = false">
+        <div class="form-group">
+          <input id="Nome" type="number" name="name" class="form-control" [(ngModel)]="inscrito.idade" required
+            (focus)="error = false" oninput="validity.valid||(value='');" min="1">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <h5 for="Nome" class="card-title">Telefone</h5>
+      <br><br>
+
+      <div class="form-group col-sm-12" (click)="error = false">
+        <div class="form-group">
+          <input id="Nome" type="text" name="name" class="form-control" data-mask="(00) 0000-0000"
+            data-mask-selectonfocus="true" [(ngModel)]="inscrito.telefone" required (focus)="error = false"
+            oninput="validity.valid||(value='');">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <h5 for="Nome" class="card-title">Célula</h5>
+      <br><br>
+
+      <div class="form-group col-sm-12" (click)="error = false">
+        <div class="form-group">
+          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+            [(ngModel)]="inscrito.celula" name="celula">
+            <option *ngFor="let celula of celulas; let i = index" [ngValue]="celula" [selected]="celulas[0]">
+              {{celula}}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <h5 for="Nome" class="card-title">Possui Carro ?</h5>
+      <br><br>
+
+      <div class="form-group col-sm-12" (click)="error = false">
+        <div class="form-group">
+          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+            [(ngModel)]="inscrito.carro" name="celula">
+            <option>Sim</option>
+            <option>Não</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <h5 for="Nome" class="card-title">Possui rede ?</h5>
+      <br><br>
+
+      <div class="form-group col-sm-12" (click)="error = false">
+        <div class="form-group">
+          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+            [(ngModel)]="inscrito.rede" name="celula">
+            <option>Sim</option>
+            <option>Não</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <h5 for="Nome" class="card-title">Horário que irá</h5>
+      <br><br>
+
+      <div class="form-group col-sm-12" (click)="error = false">
+        <div class="form-group">
+          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+            [(ngModel)]="inscrito.horarioIda" name="celula">
+            <option>Sábado - Manhã</option>
+            <option>Sábado - Tarde</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <h5 for="Nome" class="card-title">Alguma doença ou alergia? Se sim, qual?</h5>
+      <br><br>
+
+      <div class="form-group col-sm-12" (click)="error = false">
+        <div class="form-group">
+          <input id="Nome" type="text" name="name" class="form-control" [(ngModel)]="inscrito.alergiaDoenca" required
+            (focus)="error = false" oninput="validity.valid||(value='');">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <h5 for="Nome" class="card-title">Forma de Pagamento</h5>
+
+      <div class="form-group" (click)="error = false">
+        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+          [(ngModel)]="inscrito.formaPagamento" name="idItem">
+          <option *ngFor="let pagamento of pagamentos; let i = index" [ngValue]="pagamento" [selected]="pagamentos[0]">
+            {{pagamento}}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group m-0">
+      <button (click)="salvarItem();" type="button" id="btnEnviar" class="btn btn-success btn-block">
+        Inscrever-se
+      </button>
+    </div>
+  </form>
+  <br>
+  <hr>
+</div>
+
+<div *ngIf="enviado">
+  <app-sucesso></app-sucesso>
+</div>
+
+<div class="social-links mt-3 text-center">
+  <a href="https://matheuspcouto.github.io/" target="_blank"><i class="fa fa-user"></i></a>
+  <a href="https://www.instagram.com/matheuspcouto/?hl=pt-br" target="_blank"><i class="fa fa-instagram"></i></a>
+  <a href="https://www.linkedin.com/in/matheuspcouto/" target="_blank"><i class="fa fa-linkedin"></i></a>
+  <br><br> Desenvolvido por Matheus Pimentel Do Couto - 2022
+</div>
