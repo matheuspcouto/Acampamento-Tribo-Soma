@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.siteAtivo = true;
+    this.siteAtivo = false;
   }
 }
 
